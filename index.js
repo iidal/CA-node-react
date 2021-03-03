@@ -13,4 +13,3 @@ app.get('/customers', function (req, res) {
     res.send(customers)
 })
 app.listen(port, () => { console.log("listening port") })
-app.listen(3000)
