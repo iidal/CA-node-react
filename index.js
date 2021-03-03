@@ -1,15 +1,15 @@
-const http = require("http");
-const express = require('express')
+const express = require("express");
 const app = express();
 const port = process.env.PORT || 8080;
-
 app.use(express.static("public"));
-
-
-let customers = [{ id: 1, name: "jack" }, { id: 2, name: "jack" }];
-
-//http get 
-app.get('/customers', function (req, res) {
-    res.send(customers)
-})
-app.listen(port, () => { console.log("listening port") })
+let customers = [
+    { id: 1, name: "Iida" },
+    { id: 2, name: "Iida2" },
+];
+// HTTP GET http://localhost:8080/api/customers
+app.get("/api/customers", (req, res) => {
+    res.send(customers);
+});
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
