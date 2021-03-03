@@ -5,6 +5,7 @@ const port = process.env.PORT || 8080;
 const database = require("./database/crudrepository.js");
 
 app.use(express.static("public"));
+app.use(express.json());
 
 
 app.get("/api/locations", function (req, res) {
@@ -33,6 +34,13 @@ app.delete("/api/locations/:id([0-9]+)", function (req, res) {
         res.end();
     }
 });
+
+
+app.post("/api/locations", (req, res) => {
+    res.status(201);
+    res.send(database.add(req.body));
+});
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

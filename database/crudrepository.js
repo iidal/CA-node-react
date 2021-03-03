@@ -1,7 +1,7 @@
 let counter = 0;
 let database = [
-    { id: 1, latitude: 60, longitude: 70 },
-    { id: 2, latitude: 40, longitude: 80 },
+    { id: counter++, latitude: 60, longitude: 70 },
+    { id: counter++, latitude: 40, longitude: 80 },
 ];
 
 //var str = JSON.stringify(database, null, 2)
@@ -16,7 +16,6 @@ module.exports = {
 
         }
         return location;
-
     },
     deleteById: (id) => {
         const newdb = database.filter((location) => location.id !== id)
@@ -27,6 +26,10 @@ module.exports = {
         return true;
 
     },
+    add: (newContent) => {
+        newContent.id = counter++;
+        database.push(newContent);
+    }
 };
 
 
