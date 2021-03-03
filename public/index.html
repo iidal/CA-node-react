@@ -14,6 +14,24 @@
   <body>
     <h1>hello worldi</h1>
     <img src="frog.jpg" />
-    <script src="js/scripts.js"></script>
+
+    <h3>locations</h3>
+    <ul id="locations"></ul>
+
+    <!-- <script src="js/scripts.js"></script> -->
+    <script>
+      const main = async () => {
+        let result = await fetch("/api/locations");
+        let data = await result.json();
+        element = document.querySelector("#locations");
+        let content = "";
+        for (locat of data) {
+          content += `<li>${locat.id}: ${locat.latitude}&deg;N ${locat.longitude}&deg;E</li>`;
+        }
+        element.innerHTML = content;
+      };
+
+      main();
+    </script>
   </body>
 </html>

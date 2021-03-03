@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/iidal/ca-node-react#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-prettify": "^0.1.1"
   }
 }
